@@ -16,6 +16,7 @@ profileNavLink.innerHTML = `<a href="profile.html?user=${loggedInProfile}" class
 /**
  * This function fetches posts from the API.
  *
+ * @returns {object} returns an object with posts data from the API
  */
 
 export async function fetchPostsWithToken() {
@@ -39,11 +40,12 @@ export async function fetchPostsWithToken() {
   }
 }
 
-// function to display posts
 /**
  * This function creates HTML to display multiple posts based on an object.
- * @param { array } post An array of object fetched from an API containing specific properties of posts.
+ *
+ * @param { array } post An array of object fetched from an API containing specific post data.
  */
+
 function displayPostsOnPage(post) {
   for (let i = 0; i < post.length; i++) {
     if (post[i].media) {
@@ -102,15 +104,16 @@ function displayPostsOnPage(post) {
   }
 }
 
-// Filter posts
 /**
- * This function filteres posts based on query paramteres.
+ * Function that filters posts based on query paramaters.
+ *
  * @param { array } post An array of objects fetched from an API
  */
+
 function filterPosts(post) {
-  postsWithImagesButton.innerHTML = `<a href="index.html?filter=posts_img" class="btn btn-primary me-1">Posts with images</a>`;
-  postsWithoutImagesButton.innerHTML = `<a href="index.html?filter=no_img" class="btn btn-primary me-1">Posts without images</a>`;
-  allPostsButton.innerHTML = `<a href="index.html" class="btn btn-primary me-1">Most recent posts</a>`;
+  postsWithImagesButton.innerHTML = `<a href="index.html?filter=posts_img" class="btn btn-primary me-1">With images</a>`;
+  postsWithoutImagesButton.innerHTML = `<a href="index.html?filter=no_img" class="btn btn-primary me-1">Without images</a>`;
+  allPostsButton.innerHTML = `<a href="index.html" class="btn btn-primary me-1">Most recent</a>`;
 
   if (filterParam === "posts_img") {
     postsContainer.innerHTML = "";
@@ -176,7 +179,8 @@ function filterPosts(post) {
 }
 
 /**
- * This function displays posts based on a values from the search input.
+ * This function displays posts based on a values from the search.
+ *
  * @param { array } posts An array of objects fetched from an API
  * @returns { array } of objects (posts) containing the value of the input field in the title.
  */
@@ -195,6 +199,7 @@ function searchPosts(posts) {
 
 /**
  * This function creates HTML based on the input data from the search field.
+ *
  * @param { array } posts An array of objects fetched from an API
  */
 
@@ -256,12 +261,13 @@ function displaySearchResult(posts) {
   });
 }
 
-// Create post function
 /**
- * This function contains an eventListener to create a post based on the input in the create post form.
+ * This function uses an eventListener to create a new post based on the values in the create post form.
+ *
  * @param { Class } formData Creates a key/value pair based on the data input in the create post form
  * @param { object } postInfo Turns the formData into an object
  */
+
 export function setCreatePostListener() {
   createPostForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -274,9 +280,11 @@ export function setCreatePostListener() {
 }
 
 /**
- * This function accepts one argument, an object, and sends this object to the API database.
- * @param { object } post information from a form
+ * This function accepts one argument, an object, and posts this data to the API.
+ *
+ * @param { object } post data from the create post form inputs
  */
+
 async function createPost(post) {
   try {
     const postData = {
