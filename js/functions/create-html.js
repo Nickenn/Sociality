@@ -92,12 +92,12 @@ export function createHtmlForProfile(profile) {
                 <div>
                     <h3 class="mt-2">${name}</h3></div>
                 <div>
-                    <p class="m-0">Posts: ${posts}</p>
+                    <p class="m-0">My Posts: ${posts}</p>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div>
-                    <h3 class="mt-2">Connections</h3>
+                    <h3 class="mt-2">My connections</h3>
                 </div>
                 <div>
                     <p class="m-0">Followers: ${followers}</p>
