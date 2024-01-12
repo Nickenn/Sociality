@@ -2,7 +2,7 @@
 
 ## JavaScript 2 Course Assignment - Noroff
 
-![Screenshot]()
+![Screenshot](/assets/sociality-screenshot.jpg)
 
 Social network website
 
